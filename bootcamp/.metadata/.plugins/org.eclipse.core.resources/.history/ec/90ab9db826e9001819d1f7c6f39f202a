@@ -1,0 +1,16 @@
+package ch04_prj1_TableOfPowers;
+
+import java.util.Scanner;
+
+public class TableOfPowersApp {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to the Squares and Cubes Table!\n");
+		
+        @SuppressWarnings("resource")
+
+		Scanner sc = new Scanner(System.in);
+		
+	}
+
+}

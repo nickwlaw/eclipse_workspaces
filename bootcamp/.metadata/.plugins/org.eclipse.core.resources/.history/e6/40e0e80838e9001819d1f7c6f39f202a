@@ -1,0 +1,10 @@
+package ch04_prj4_CommonDivisorCalculator;
+
+public class CommonDivisorCalculatorApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

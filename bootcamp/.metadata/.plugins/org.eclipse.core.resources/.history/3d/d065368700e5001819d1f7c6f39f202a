@@ -1,0 +1,18 @@
+
+public class Chapter3App {
+
+	public static void main(String[] args) {
+		
+		int a = 14;
+		int b = 8;
+		
+		int c = a/b;
+		int d = a%b;
+		
+		System.out.println("a / b = "+c);
+		System.out.println("a % b = "+d);
+
+	}
+	
+
+}

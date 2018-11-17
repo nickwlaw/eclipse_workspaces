@@ -1,0 +1,10 @@
+package ch05_prj1_DiceRoller;
+
+public class DiceRollerApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

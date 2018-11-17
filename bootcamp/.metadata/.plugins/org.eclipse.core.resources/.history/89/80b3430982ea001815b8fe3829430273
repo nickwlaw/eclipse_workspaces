@@ -1,0 +1,17 @@
+package ch04_prj4_CommonDivisorCalculator;
+
+import java.util.Scanner;
+
+public class CommonDivisorCalculatorApp {
+
+	public static void main(String[] args) {
+		System.out.println("Greatest Common Denominator Finder\n");
+		
+		Scanner sc = new Scanner(System.in);
+        String choice = "y";
+        
+        while (choice.equalsIgnoreCase("y")) {
+        }
+	}
+
+}
