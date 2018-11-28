@@ -2,8 +2,8 @@ package ch07_prj5_Calculator;
 
 public class Calculator {
 	
-	int intSum;
-	double dblSum;
+	private int intSum;
+	private double dblSum;
 	
 	public Calculator(int int1, int int2) {
 		intSum = int1+int2;
