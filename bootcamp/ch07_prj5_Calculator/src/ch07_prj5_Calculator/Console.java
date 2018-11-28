@@ -10,8 +10,8 @@ public class Console {
 		// prompt user for any string
 		
 		System.out.print(prompt);
-		String s = sc.next(); // read user entry
-		sc.nextLine(); // discard any other data entered on the line
+		String s = sc.next();
+		sc.nextLine();
 		return s;
 	}
 
@@ -27,9 +27,9 @@ public class Console {
 				i = sc.nextInt();
 				isValid = true;
 			} else {
-				System.out.println("Error! Invalid integer. Try again.");
+				System.out.println("Invalid integer. Please try again.");
 			}
-			sc.nextLine(); // discard any other data entered on the line
+			sc.nextLine();
 		}
 		return i;
 	}
@@ -43,9 +43,9 @@ public class Console {
 		while (!isValid) {
 			i = getInt(prompt);
 			if (i < min) {
-				System.out.println("Error! Number must be greater than " + min + ".");
+				System.out.println("Integer must be equal to or greater than " + min + ".");
 			} else if (i > max) {
-				System.out.println("Error! Number must be less than " + max + ".");
+				System.out.println("Integer must be equal to or less than " + max + ".");
 			} else {
 				isValid = true;
 			}
@@ -67,7 +67,7 @@ public class Console {
 			} else {
 				System.out.println("Error! Invalid number. Try again.");
 			}
-			sc.nextLine(); // discard any other data entered on the line
+			sc.nextLine();
 		}
 		return d;
 	}
