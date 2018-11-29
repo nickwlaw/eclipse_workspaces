@@ -27,7 +27,7 @@ public class Console {
 				i = sc.nextInt();
 				isValid = true;
 			} else {
-				System.out.println("Invalid integer. Please try again.");
+				System.out.println("Invalid number. Please try again.");
 			}
 			sc.nextLine();
 		}
@@ -43,9 +43,9 @@ public class Console {
 		while (!isValid) {
 			i = getInt(prompt);
 			if (i < min) {
-				System.out.println("Integer must be equal to or greater than " + min + ".");
+				System.out.println("Number must be equal to or greater than " + min + ".");
 			} else if (i > max) {
-				System.out.println("Integer must be equal to or less than " + max + ".");
+				System.out.println("Number must be equal to or less than " + max + ".");
 			} else {
 				isValid = true;
 			}
@@ -65,7 +65,7 @@ public class Console {
 				d = sc.nextDouble();
 				isValid = true;
 			} else {
-				System.out.println("Error! Invalid number. Try again.");
+				System.out.println("Invalid number. Please try again.");
 			}
 			sc.nextLine();
 		}
@@ -81,9 +81,9 @@ public class Console {
 		while (!isValid) {
 			d = getDouble(prompt);
 			if (d < min) {
-				System.out.println("Error! Number must be greater than " + min + ".");
+				System.out.println("Number must be equal to or greater than " + min + ".");
 			} else if (d > max) {
-				System.out.println("Error! Number must be less than " + max + ".");
+				System.out.println("Number must be equal to or less than " + max + ".");
 			} else {
 				isValid = true;
 			}
@@ -95,11 +95,10 @@ public class Console {
 
 		// see if the user wants to continue
 
-		String choice = "";
 		boolean isValid = false;
 		while (!isValid) {
 			System.out.print("Continue? (y/n): ");
-			choice = sc.next();
+			String choice = sc.next();
 
 			if (!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n")) {
 				System.out.println("Please enter \"y\" to continue or \"n\" to quit.");
