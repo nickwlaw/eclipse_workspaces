@@ -13,12 +13,11 @@ public class GuessingGameApp {
 		while (choice.equalsIgnoreCase("y")) {
 			int theNumber = generateRandomNumber();
 			System.out.println("I'm thinking of a number from 1 to 100.\n"
-							 + "Try to guess it.\r\n");
-			System.out.println();
+							 + "Try to guess it.\n");
 			int guess = 0;
 			int count = 0;
 			while (guess != theNumber) {
-				guess = getIntWithinRange(scan, prompt, val1, val2)
+				guess = getIntWithinRange(sc, prompt, val1, val2)
 			}
 			
 		}
@@ -52,7 +51,7 @@ public class GuessingGameApp {
 			str = "You're a mathematical wizard!";
 		else if (count <= 7)
 			str = "Not too bad!  You have potential.";
-		else (count > 7)
+		else if (count > 7)
 			str = "What took you so long? Maybe you should take some lessons.";
 		
 		
