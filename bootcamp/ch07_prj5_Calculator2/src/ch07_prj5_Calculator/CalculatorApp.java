@@ -21,27 +21,27 @@ public class CalculatorApp {
 			case 1:
 				int int1 = Console.getInt("Enter first integer: ");
 				int int2 = Console.getInt("Enter second integer: ");
-				System.out.println("The sum of these two integers is " + Calculator.getIntSum(int1,int2)+"\n");
+				System.out.println("The sum of these two integers is " + Calculator.getSum(int1,int2)+"\n");
 				cont = Console.askToContinue();
 				continue;
 			case 2:
 				int int3 = Console.getInt("Enter first integer: ");
 				int int4 = Console.getInt("Enter second integer: ");
 				int int5 = Console.getInt("Enter third integer: ");
-				System.out.println("The sum of these three integers is " + Calculator.getIntSum(int3,int4,int5)+"\n");
+				System.out.println("The sum of these three integers is " + Calculator.getSum(int3,int4,int5)+"\n");
 				cont = Console.askToContinue();
 				continue;
 			case 3:
 				double dbl1 = Console.getDouble("Enter first double: ");
 				double dbl2 = Console.getDouble("Enter second double: ");
-				System.out.println("The sum of these two doubles is " + Calculator.getDblSum(dbl1,dbl2)+"\n");
+				System.out.println("The sum of these two doubles is " + Calculator.getSum(dbl1,dbl2)+"\n");
 				cont = Console.askToContinue();
 				continue;
 			case 4:
 				double dbl3 = Console.getDouble("Enter first double: ");
 				double dbl4 = Console.getDouble("Enter second double: ");
 				double dbl5 = Console.getDouble("Enter third double: ");
-				System.out.println("The sum of these three doubles is " + Calculator.getDblSum(dbl3,dbl4,dbl5)+"\n");
+				System.out.println("The sum of these three doubles is " + Calculator.getSum(dbl3,dbl4,dbl5)+"\n");
 				cont = Console.askToContinue();
 				continue;
 			case 5:
