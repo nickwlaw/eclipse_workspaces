@@ -1,4 +1,4 @@
-
+package ch08_prj3_AreaCalculator;
 import java.util.Scanner;
 
 public class Console {

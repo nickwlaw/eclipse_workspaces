@@ -15,6 +15,7 @@ public class CalculatorApp {
 												 + "3) add two doubles?\n"
 												 + "4) add three doubles?\n"
 												 + "5) quit?\n"
+												 + "<> "
 												 ,1,5);
 			if (choice == 1) {
 				int int1 = Console.getInt("Enter first integer: ");

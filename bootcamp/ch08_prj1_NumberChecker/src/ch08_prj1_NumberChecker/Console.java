@@ -1,21 +1,21 @@
-
+package ch08_prj1_NumberChecker;
 import java.util.Scanner;
 
 public class Console {
 
-	private static Scanner sc = new Scanner(System.in);
+	protected static Scanner sc = new Scanner(System.in);
 
-	public static String getString(String prompt) {
-		
+	public String getString(String prompt) {
+
 		// prompt user for any string
-		
+
 		System.out.print(prompt);
 		String s = sc.next();
 		sc.nextLine();
 		return s;
 	}
 
-	public static int getInt(String prompt) {
+	public int getInt(String prompt) {
 		
 		// prompt user for any integer value
 		
@@ -34,7 +34,7 @@ public class Console {
 		return i;
 	}
 
-	public static int getIntWithinRange(String prompt, int min, int max) {
+	public int getIntWithinRange(String prompt, int min, int max) {
 		
 		// prompt user for an integer value within a range
 		
@@ -53,7 +53,7 @@ public class Console {
 		return i;
 	}
 
-	public static double getDouble(String prompt) {
+	public double getDouble(String prompt) {
 		
 		// prompt user for any double value
 		
@@ -72,7 +72,7 @@ public class Console {
 		return d;
 	}
 
-	public static double getDoubleWithinRange(String prompt, double min, double max) {
+	public double getDoubleWithinRange(String prompt, double min, double max) {
 		
 		// prompt user for a double value within a range
 		

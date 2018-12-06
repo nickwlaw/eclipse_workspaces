@@ -1,4 +1,4 @@
-
+package ch08_prj2_PersonManager;
 import java.util.Scanner;
 
 public class Console {
@@ -12,6 +12,34 @@ public class Console {
 		System.out.print(prompt);
 		String s = sc.next();
 		sc.nextLine();
+		return s;
+	}
+	
+	public static String getString(String prompt, String a, String b) {
+		
+		// prompt user for any string
+		
+		String s = null;
+		boolean isValid = false;
+		while (!isValid) {
+			System.out.print(prompt);
+			s = sc.next();
+
+			if (!s.equalsIgnoreCase(a) && !s.equalsIgnoreCase(b)) {
+				System.out.println("Please enter "+a+" or "+b+".\n");
+
+			} else if (s.equalsIgnoreCase(a)) {
+				s = a;
+				isValid = true;
+				sc.nextLine();
+				System.out.println();
+
+			} else {
+				s = b;
+				isValid = true;
+				sc.nextLine();
+			}
+		}
 		return s;
 	}
 
