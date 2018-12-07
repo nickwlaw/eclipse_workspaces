@@ -4,10 +4,9 @@ public class MakeChocolateApp {
 	public static void main(String[] args) {
 
 		// Greet the user and establish the purpose of the app
-		
+
 		System.out.println("Let's make some chocolate!\n");
-		String rules = "Here's the rules:\n" 
-				+ "- One small chocolate bar weighs 1 kilo.\n"
+		String rules = "Here's the rules:\n" + "- One small chocolate bar weighs 1 kilo.\n"
 				+ "- One BIG chocolate bar weighs 5 kilos.\n"
 				+ "- I'm going to give you orders for kilos of chocolate from 1 to 20,\n"
 				+ "  and you tell me how many BIG bars and small bars you have on hand.\n"
@@ -44,16 +43,20 @@ public class MakeChocolateApp {
 	// perform logic that returns number of small bars needed to fill the order
 	// return -1 if user doesn't have enough small bars to fill the order
 	private static int makeChocolate(int sb, int bb, int goal) {
-		int i = goal - (bb * 5);
-		if (i <= 0) {
-			i = 0;
-		}
-		if (i > 0) {
-			i -= sb;
-			if (i <= 0)
-				i = sb + i;
-			else
-				i = -1;
+		boolean isValid = false;
+		int i = 0;
+		while (!isValid) {
+			i = goal - (bb * 5);
+			if (i <= 0) 
+				bb -= 1;
+			if (i > 0) {
+				i -= sb;
+				if (i <= 0)
+					i = sb + i;
+				else
+					i = -1;
+				isValid = true;
+			}
 		}
 		return i;
 	}
