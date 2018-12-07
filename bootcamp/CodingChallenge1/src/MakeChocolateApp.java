@@ -47,17 +47,13 @@ public class MakeChocolateApp {
 		int i = goal - (bb * 5);
 		if (i <= 0) {
 			i = 0;
-			return i;
 		}
 		if (i > 0) {
 			i -= sb;
-			if (i <= 0) {
+			if (i <= 0)
 				i = sb + i;
-				return i;
-			} else {
+			else
 				i = -1;
-				return i;
-			}
 		}
 		return i;
 	}
