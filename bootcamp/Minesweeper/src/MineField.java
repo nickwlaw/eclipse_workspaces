@@ -36,8 +36,4 @@ public class MineField {
 		return mineField[x][y];
 	}
 	
-	public int[][] getMineField() {
-		return mineField;
-	}
-	
 }

@@ -2,93 +2,77 @@ import java.util.Arrays;
 
 public class GameBoard {
 
-	private String[][] gb;
-	private MineField mf;
+	private String[][] gameDisplay;
+	private MineField mineField;
 	private int correctFlags = 0;
+	private final int TOTAL_MINES = 15;
 
 	public GameBoard() {
-		mf = new MineField();
-		gb = new String[10][10];
-		for (String[] row : gb)
+		mineField = new MineField();
+		gameDisplay = new String[10][10];
+		for (String[] row : gameDisplay)
 			Arrays.fill(row, "///");
 	}
 	
 	public boolean flagGameSpace(int x, int y) {
-		if (!gb[x][y].equals("-@-") && mf.getMineFieldValue(x, y) == -1)
+		if (!gameDisplay[x][y].equals("-@-") && mineField.getMineFieldValue(x, y) == -1)
 			correctFlags++;
-		if (gb[x][y].equals("-@-") && mf.getMineFieldValue(x, y) == -1)
+		if (gameDisplay[x][y].equals("-@-") && mineField.getMineFieldValue(x, y) == -1)
 			correctFlags--;
-		if (gb[x][y].equals("-@-"))
-			gb[x][y] = "///";
-		else if (gb[x][y].equals("///"))
-			gb[x][y] = "-@-";
+		if (gameDisplay[x][y].equals("-@-"))
+			gameDisplay[x][y] = "///";
+		else if (gameDisplay[x][y].equals("///"))
+			gameDisplay[x][y] = "-@-";
 
-		if (correctFlags == 15) {
+		if (correctFlags == TOTAL_MINES) {
 			Console.println("");
 			Console.println("You found all of the mines!");
-			Console.println("You're a minesweeping master.");
 			return false;
 		}
 		return true;
 	}
 
 	public boolean checkGameSpace(int x, int y) {
+		// comment out lines 37 and 38 to demonstrate an ArrayIndexOutOfBoundsException
 		if (x < 0 || x > 9 || y < 0 || y > 9)
 			return true;
-		if (gb[x][y].equals("   "))
+		// comment out lines 39 and 40 to demonstrate the dangers of recursion
+		if (gameDisplay[x][y].equals("   "))
 			return true;
-		int gs = mf.getMineFieldValue(x, y);
+		int mineFieldValue = mineField.getMineFieldValue(x, y);
 		
-		if (gs == -1) {
+		if (mineFieldValue == -1) {
 			for (int i = 0; i <= 9; i++) {
 				for (int j = 0; j <= 9; j++) {
-					if (mf.getMineFieldValue(i, j) == -1)
-						gb[i][j] = "O~*";
+					if (mineField.getMineFieldValue(i, j) == -1)
+						gameDisplay[i][j] = "O~*";
 				}
 			}
 			Console.println("");
 			Console.println("Oh no... you detonated a mine!");
-			Console.println("Better luck next time.");
 			return false;
 		}
-		
-		if (gs == 0) {
-			gb[x][y] = "   ";
-			if (y + 1 <= 9) {
-				if (mf.getMineFieldValue(x, y + 1) != -1)
-					checkGameSpace(x, y + 1);
-			}
-			if (x + 1 <= 9 && y + 1 <= 9) {
-				if (mf.getMineFieldValue(x + 1, y + 1) != -1)
-					checkGameSpace(x + 1, y + 1);
-			}
-			if (x + 1 <= 9) {
-				if (mf.getMineFieldValue(x + 1, y) != -1)
-					checkGameSpace(x + 1, y);
-			}
-			if (x + 1 <= 9 && y - 1 >= 0) {
-				if (mf.getMineFieldValue(x + 1, y - 1) != -1)
-					checkGameSpace(x + 1, y - 1);
-			}
-			if (y - 1 >= 0) {
-				if (mf.getMineFieldValue(x, y - 1) != -1)
-					checkGameSpace(x, y - 1);
-			}
-			if (x - 1 >= 0 && y - 1 >= 0) {
-				if (mf.getMineFieldValue(x - 1, y - 1) != -1)
-					checkGameSpace(x - 1, y - 1);
-			}
-			if (x - 1 >= 0) {
-				if (mf.getMineFieldValue(x - 1, y) != -1)
-					checkGameSpace(x - 1, y);
-			}
-			if (x - 1 >= 0 && y + 1 <= 9) {
-				if (mf.getMineFieldValue(x - 1, y + 1) != -1)
-					checkGameSpace(x - 1, y + 1);
-			}
+		if (mineFieldValue == 0) {
+			gameDisplay[x][y] = "   ";
+			if (y + 1 <= 9)
+				checkGameSpace(x, y + 1);
+			if (x + 1 <= 9 && y + 1 <= 9)
+				checkGameSpace(x + 1, y + 1);
+			if (x + 1 <= 9)
+				checkGameSpace(x + 1, y);
+			if (x + 1 <= 9 && y - 1 >= 0)
+				checkGameSpace(x + 1, y - 1);
+			if (y - 1 >= 0)
+				checkGameSpace(x, y - 1);
+			if (x - 1 >= 0 && y - 1 >= 0)
+				checkGameSpace(x - 1, y - 1);
+			if (x - 1 >= 0)
+				checkGameSpace(x - 1, y);
+			if (x - 1 >= 0 && y + 1 <= 9)
+				checkGameSpace(x - 1, y + 1);
 		}
-		if (gs > 0)
-			gb[x][y] = " " + gs + " ";
+		if (mineFieldValue > 0)
+			gameDisplay[x][y] = " " + mineFieldValue + " ";
 		return true;
 	}
 	
@@ -101,12 +85,15 @@ public class GameBoard {
 		for (int row = 0; row <= 9; row++) {
 			String gameBoardRow = " " + row + " |";
 			for (int column = 0; column <= 9; column++) {
-				gameBoardRow += gb[column][row] + "|";
+				gameBoardRow += gameDisplay[column][row] + "|";
 			}
 			gameBoardRow += "\n" + gameBoardDivider;
 			gameBoardFormatted += gameBoardRow;
 		}
 		return gameBoardFormatted;
+
+		
+// I left in the following lines of code to demonstrate how much more clean and effecient the nested for loop is.
 
 //		String gameBoardRow0 =    " 0 |";
 //		for (int i = 0; i <= 9; i++) {
