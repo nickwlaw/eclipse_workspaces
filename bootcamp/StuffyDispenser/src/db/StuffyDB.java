@@ -15,12 +15,12 @@ public class StuffyDB {
 
 	/* Constructor:
 	 * When the application is run, a new StuffyDB is created with user input for the number of Stuffy objects.
-	 * A for loop creates a new random Stuffy and adds it to ArrayList stuffies via an addStuffy function that also increments the usedIDs counter. 
+	 * A for loop creates a new random Stuffy and adds it to ArrayList stuffies via the addStuffy function. 
 	 */
-	
 	public StuffyDB(int n) {
 		for (int i = 1; i <= n; i++) {
-			Stuffy s = new Stuffy(i);
+			int id = getNextID();
+			Stuffy s = new Stuffy(id);
 			addStuffy(s);
 		}
 	}
