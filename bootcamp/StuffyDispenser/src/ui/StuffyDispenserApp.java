@@ -10,7 +10,7 @@ public class StuffyDispenserApp {
 		System.out.println("Welcome to the Stuffy Dispenser Application!\n");
 		StuffyDB sdb = new StuffyDB(Console.getIntWithinRange("How many stuffies would you like to have in your Stuffy Dispenser? (1-25): ", 1, 25));
 		boolean cont = true;
-		while (cont == true) {
+		while (cont) {
 			System.out.println();
 			System.out.println("Menu:");
 			System.out.println("1) Grab a stuffy");
@@ -18,13 +18,13 @@ public class StuffyDispenserApp {
 			System.out.println("3) Exit");
 			int choice = Console.getIntWithinRange("<> ", 1, 3);
 			if (choice == 1) {
-				if (sdb.checkEmpty() == true)
+				if (sdb.checkEmpty())
 					System.out.println("There are no stuffies in the dispenser.");
 				else {
 					boolean isStuffy = false;
 					while (!isStuffy) {
 						int stuffyID = ((int) (Math.random() * sdb.getDBSize()) + 1);
-						if (sdb.checkForStuffy(stuffyID) == true) {
+						if (sdb.checkForStuffy(stuffyID)) {
 							Stuffy s = new Stuffy();
 							s = sdb.grabStuffy(stuffyID);
 							System.out.println("You got a " + s + "!");

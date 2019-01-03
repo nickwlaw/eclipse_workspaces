@@ -39,7 +39,7 @@ public class StuffyDB {
 	// The checkForStuffy method is used by the main application to ensure that a Stuffy object exists before attempting to call the grabStuffy method on it.
 	public boolean checkForStuffy(int id) {
 		for (Stuffy stuffy : stuffies) {
-			if (stuffy.doesStuffyExist(id) == true)
+			if (stuffy.doesStuffyExist(id))
 				return true;
 		}
 		return false;

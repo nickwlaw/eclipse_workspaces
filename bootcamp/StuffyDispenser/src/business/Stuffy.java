@@ -25,17 +25,17 @@ public class Stuffy {
 	// This constructor is used by the StuffyDB class to generate random Stuffy objects and assign them IDs generated and passed in by the StuffyDB class
 	public Stuffy(int id) {
 		this.id = id;
-		this.stuffyAttributes();
-		this.type = types.get((int)(Math.random()*types.size()));
-		this.size = sizes.get((int)(Math.random()*sizes.size()));
-		this.color = colors.get((int)(Math.random()*colors.size()));
+		stuffyAttributes();
+		type = types.get((int)(Math.random()*types.size()));
+		size = sizes.get((int)(Math.random()*sizes.size()));
+		color = colors.get((int)(Math.random()*colors.size()));
 	}
 	
 	/* This constructor is used by the main application to create a new Stuffy object by getting the next available ID from the StuffyDB class
 	 * and passing in user input for other attributes.
 	 */
 	public Stuffy(StuffyDB sdb, String type, String size, String color) {
-		this.id = sdb.getNextID();
+		id = sdb.getNextID();
 		this.type = type;
 		this.size = size;
 		this.color = color;
@@ -50,8 +50,7 @@ public class Stuffy {
 	public boolean doesStuffyExist(int id) {
 		if (id == this.id)
 			return true;
-		else
-			return false;
+		return false;
 	}
 	
 	// the stuffyAttributes method fills the types, sizes, and colors ArrayLists with default data for randomly generating Stuffy objects
@@ -63,9 +62,12 @@ public class Stuffy {
 		types.add("molerat");
 		types.add("unicorn");
 		types.add("dragon");
+		types.add("tanuki");
+		sizes.add("tiny");
 		sizes.add("small");
 		sizes.add("medium");
 		sizes.add("large");
+		sizes.add("gigantic");
 		colors.add("white");
 		colors.add("black");
 		colors.add("pink");
@@ -76,6 +78,6 @@ public class Stuffy {
 	
 	@Override
 	public String toString() {
-		return size+" "+color+" "+type;
+		return "["+id+"] "+size+" "+color+" "+type;
 	}
 }
